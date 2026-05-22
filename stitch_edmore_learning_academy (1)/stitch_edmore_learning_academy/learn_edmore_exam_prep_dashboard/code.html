@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Exam Prep Dashboard | Learn Edmore Resources</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed-variant": "#003ea8",
+                    "outline": "#737686",
+                    "surface": "#f8f9ff",
+                    "inverse-surface": "#233144",
+                    "outline-variant": "#c3c6d7",
+                    "on-tertiary": "#ffffff",
+                    "secondary": "#006c49",
+                    "on-secondary-fixed": "#002113",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "on-tertiary-fixed-variant": "#5c4300",
+                    "secondary-fixed-dim": "#4edea3",
+                    "surface-variant": "#d5e3fc",
+                    "on-tertiary-fixed": "#261a00",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#ffdf9f",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#6d5000",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#ccdbf3",
+                    "background": "#f8f9ff",
+                    "surface-container-highest": "#d5e3fc",
+                    "on-error": "#ffffff",
+                    "surface-container": "#e6eeff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "tertiary-fixed-dim": "#f9bd22",
+                    "error": "#ba1a1a",
+                    "secondary-fixed": "#6ffbbe",
+                    "on-tertiary-container": "#ffeed3",
+                    "primary-container": "#2563eb",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed-variant": "#005236",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#00174b",
+                    "on-primary-container": "#eeefff",
+                    "surface-bright": "#f8f9ff",
+                    "on-secondary-container": "#00714d",
+                    "surface-container-high": "#dce9ff",
+                    "primary-fixed": "#dbe1ff",
+                    "surface-tint": "#0053db",
+                    "surface-container-low": "#eff4ff",
+                    "tertiary-container": "#8b6700",
+                    "secondary-container": "#6cf8bb",
+                    "primary": "#004ac6",
+                    "on-surface-variant": "#434655",
+                    "inverse-primary": "#b4c5ff",
+                    "on-surface": "#0d1c2e",
+                    "on-background": "#0d1c2e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter-desktop": "24px",
+                    "margin-mobile": "20px",
+                    "gutter-mobile": "16px",
+                    "margin-desktop": "48px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg": ["Quicksand"],
+                    "headline-md": ["Quicksand"],
+                    "body-md": ["Inter"],
+                    "headline-lg-mobile": ["Quicksand"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["28px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .radial-progress {
+            --value: 0;
+            --size: 5rem;
+            --thickness: 6px;
+            width: var(--size);
+            height: var(--size);
+            border-radius: 50%;
+            display: grid;
+            place-content: center;
+            background: radial-gradient(closest-side, white 80%, transparent 0 99.9%, white 0),
+                        conic-gradient(var(--progress-color) calc(var(--value) * 1%), #e2e8f0 0);
+        }
+        .bento-card {
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .bento-card:hover {
+            transform: translateY(-4px);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<header class="bg-surface/90 backdrop-blur-md dark:bg-inverse-surface/90 border-b border-outline-variant/30 dark:border-outline/30 shadow-sm sticky top-0 z-40 h-20">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-7xl mx-auto h-full">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">
+                Learn Edmore Resources
+            </div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Subjects</a>
+<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-bold pb-1 transition-colors duration-200" href="#">Exam Prep</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">Tutors</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200" href="#">About Us</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-surface-container rounded-full">search</button>
+<div class="h-10 w-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-bold overflow-hidden border-2 border-primary">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A friendly 3D rendered avatar of a young student with glasses and a happy expression. The avatar is set against a vibrant blue background, matching the Learn Edmore Resources color palette. The style is modern, approachable, and high-quality, reflecting an educational environment that is both professional and welcoming to learners." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG4DXif2fOs7DOubAHJnsgdkjdK9SkHWM7PirHnxbTaxAMfiKFCJDLtlbvCYO9_CFlVgmQ2O21aq00pTYqjX9VN9g3uGFdg_lEc5XZM3QNAcUiDpnvXWNn3Z5uBzCnPu78NyE3IBksTeDBBwvW1Qzf5I1zKk_7l6KhaknvT-nlbh5a12AmwB-EiPO9HDGJ8ji_JdaSuFaz5DqtvPHmGVtGisvZZhYDuBuWED-7ewZpkZl8-EYBYxnD_N3euvZ-LLNpR8xro89UIYI"/>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-4 md:px-margin-desktop py-12 pb-32">
+<!-- Hero Welcome -->
+<div class="mb-10">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-2">Welcome back, Alex! 👋</h1>
+<p class="text-on-surface-variant font-body-lg">You've completed <span class="text-primary font-bold">75%</span> of your weekly goals. Keep it up!</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-desktop">
+<!-- Left Column: Progress & Goals (Span 8) -->
+<div class="md:col-span-8 flex flex-col gap-gutter-desktop">
+<!-- Progress Row -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-gutter-desktop">
+<!-- Progress Card 1 -->
+<div class="bento-card bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30 shadow-sm flex flex-col items-center text-center">
+<div class="radial-progress mb-4" style="--value: 82; --progress-color: #004ac6;">
+<span class="text-primary font-bold text-lg">82%</span>
+</div>
+<h3 class="font-label-md text-label-md uppercase text-on-surface-variant mb-1">Mathematics</h3>
+<p class="text-sm text-outline">12/15 Topics Done</p>
+</div>
+<!-- Progress Card 2 -->
+<div class="bento-card bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30 shadow-sm flex flex-col items-center text-center">
+<div class="radial-progress mb-4" style="--value: 65; --progress-color: #006c49;">
+<span class="text-secondary font-bold text-lg">65%</span>
+</div>
+<h3 class="font-label-md text-label-md uppercase text-on-surface-variant mb-1">Science</h3>
+<p class="text-sm text-outline">8/12 Topics Done</p>
+</div>
+<!-- Progress Card 3 -->
+<div class="bento-card bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30 shadow-sm flex flex-col items-center text-center">
+<div class="radial-progress mb-4" style="--value: 45; --progress-color: #6d5000;">
+<span class="text-tertiary font-bold text-lg">45%</span>
+</div>
+<h3 class="font-label-md text-label-md uppercase text-on-surface-variant mb-1">English</h3>
+<p class="text-sm text-outline">5/11 Topics Done</p>
+</div>
+</div>
+<!-- Daily Study Goals Section -->
+<section class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline-md text-headline-md text-on-surface">Daily Study Goals</h2>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-md text-xs">Today: Oct 24</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4 p-4 rounded-lg bg-surface hover:bg-surface-container transition-colors border border-transparent hover:border-outline-variant/50 cursor-pointer group">
+<div class="w-6 h-6 rounded-full border-2 border-secondary flex items-center justify-center bg-secondary text-white">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-on-surface">Complete Algebra Practice Set</h4>
+<p class="text-sm text-on-surface-variant">Focus on quadratic equations and factoring.</p>
+</div>
+<span class="text-secondary text-sm font-bold">+50 XP</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-lg bg-surface hover:bg-surface-container transition-colors border border-transparent hover:border-outline-variant/50 cursor-pointer group">
+<div class="w-6 h-6 rounded-full border-2 border-outline flex items-center justify-center text-transparent group-hover:border-primary">
+<span class="material-symbols-outlined text-sm">circle</span>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-on-surface">Review Chemical Bonding Notes</h4>
+<p class="text-sm text-on-surface-variant">Read Chapter 4 and watch the summary video.</p>
+</div>
+<span class="text-primary text-sm font-bold">+30 XP</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-lg bg-surface hover:bg-surface-container transition-colors border border-transparent hover:border-outline-variant/50 cursor-pointer group">
+<div class="w-6 h-6 rounded-full border-2 border-outline flex items-center justify-center text-transparent group-hover:border-primary">
+<span class="material-symbols-outlined text-sm">circle</span>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-on-surface">Practice Vocabulary Quiz</h4>
+<p class="text-sm text-on-surface-variant">Unit 5 list (30 words).</p>
+</div>
+<span class="text-tertiary text-sm font-bold">+20 XP</span>
+</div>
+</div>
+<button class="mt-6 w-full py-3 rounded-xl border-2 border-dashed border-outline-variant text-outline hover:border-primary hover:text-primary transition-all font-bold">
+                        + Add a Personal Goal
+                    </button>
+</section>
+<!-- Recommended Practice Sets -->
+<section>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6">Recommended for Grade 10</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-gutter-desktop">
+<!-- Recommendation 1 -->
+<div class="bento-card bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm flex flex-col">
+<div class="h-32 bg-primary-container relative overflow-hidden">
+<img alt="Math" class="w-full h-full object-cover opacity-80" data-alt="A macro photograph of geometric mathematical shapes and complex formulas written on a semi-transparent glass surface. The lighting is cool-toned with bright blue and white highlights, creating a professional and focused atmosphere. The composition is clean and modern, perfectly aligned with a high-level educational dashboard for mathematics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaxLpOaXHX4ZEDKLDcsLP3LlRklxgsXJeB9mJsEeO82GNDMCkAiimJyKD_fhogW9ppwRKfTt3lzoyEz_nL_bUfqh598wKvTbXtXaRWgkV3r6Sr4umhOzJvT3ksnUZ1bbdkzLf7Oi1xDstQsKrhSh4fA4a6K_V5y6jOSHmgbtTPzVKyyKzndLQs9299iD9Wp5lrVhlGurhp2GDlrI5sdfQYQdX7Jz-LcY4BH-faVQB0M7xPsRPm_bOMbOcgOewu-AxuMpySU2D7xTc"/>
+<div class="absolute top-2 left-2 bg-white/90 backdrop-blur px-2 py-1 rounded-md font-label-md text-xs text-primary">MATH</div>
+</div>
+<div class="p-6">
+<h3 class="font-bold text-lg mb-2">Calculus Fundamentals</h3>
+<p class="text-sm text-on-surface-variant mb-4">Master derivatives and integration basics with 50 targeted questions.</p>
+<div class="flex items-center justify-between">
+<span class="text-xs text-outline">Level: Intermediate</span>
+<button class="text-primary font-bold flex items-center gap-1 hover:underline">
+                                        Start <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Recommendation 2 -->
+<div class="bento-card bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm flex flex-col">
+<div class="h-32 bg-secondary-container relative overflow-hidden">
+<img alt="Science" class="w-full h-full object-cover opacity-80" data-alt="A clean, minimalist laboratory setting featuring glass beakers and test tubes filled with clear liquids. The lighting is bright and natural, reflecting a pristine and professional environment. A vibrant green accent color is used to maintain brand cohesion, conveying a sense of organic growth and scientific discovery. The overall aesthetic is approachable yet academically rigorous." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3yqo-XzKgkZ0kXUWkkjDnlIp6xjZk7VQI3WBNJJvHW6RW7rFCVfnr1ZXsZuO0xjzznlGva31KALk5ak1iZnlO9XguDO3vOzw9VJL6SViwOcGwLxi_NiVOB07rBIIkec2SS55z0V5fdiCyRqrDggaw7Sg_O3mN8jsL2nhSRPQ5ULcSUp4vZ4lL_AkxOmSizU05Cga4OpgImWeKGDkctJfr68y87G-1rgXSV1Q3MJXTXNiPYASnyhDVoVjyBpb0zEB77fytrUErAEk"/>
+<div class="absolute top-2 left-2 bg-white/90 backdrop-blur px-2 py-1 rounded-md font-label-md text-xs text-secondary">SCIENCE</div>
+</div>
+<div class="p-6">
+<h3 class="font-bold text-lg mb-2">Organic Chemistry</h3>
+<p class="text-sm text-on-surface-variant mb-4">Visual guides and practice sets for functional groups and bonding.</p>
+<div class="flex items-center justify-between">
+<span class="text-xs text-outline">Level: Advanced</span>
+<button class="text-secondary font-bold flex items-center gap-1 hover:underline">
+                                        Start <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Sidebar (Span 4) -->
+<aside class="md:col-span-4 space-y-gutter-desktop">
+<!-- Upcoming Practice Tests -->
+<section class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30 shadow-sm">
+<h2 class="font-bold text-lg text-on-surface mb-4">Upcoming Tests</h2>
+<div class="space-y-4">
+<div class="flex gap-4 p-3 rounded-lg border border-outline-variant/20">
+<div class="bg-error-container text-on-error-container w-12 h-12 rounded-lg flex flex-col items-center justify-center leading-tight">
+<span class="text-xs font-bold uppercase">Oct</span>
+<span class="text-lg font-extrabold">26</span>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-sm">Mid-Term Mock: Math</h4>
+<p class="text-xs text-outline">09:00 AM • Duration: 2h</p>
+</div>
+</div>
+<div class="flex gap-4 p-3 rounded-lg border border-outline-variant/20">
+<div class="bg-surface-container text-on-surface-variant w-12 h-12 rounded-lg flex flex-col items-center justify-center leading-tight">
+<span class="text-xs font-bold uppercase">Oct</span>
+<span class="text-lg font-extrabold">29</span>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-sm">Biology Lab Quiz</h4>
+<p class="text-xs text-outline">02:30 PM • Duration: 1h</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-4 py-2 text-primary font-bold text-sm hover:bg-primary-container/10 rounded-lg transition-colors">
+                        View Full Calendar
+                    </button>
+</section>
+<!-- Achievement Badges -->
+<section class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-bold text-lg text-on-surface">Badges</h2>
+<span class="text-xs text-primary font-bold cursor-pointer hover:underline">8 Earned</span>
+</div>
+<div class="grid grid-cols-3 gap-4">
+<div class="flex flex-col items-center gap-1 group">
+<div class="w-14 h-14 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600 shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<span class="text-[10px] font-bold text-center">7-Day Streak</span>
+</div>
+<div class="flex flex-col items-center gap-1 group">
+<div class="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-[10px] font-bold text-center">Quiz Master</span>
+</div>
+<div class="flex flex-col items-center gap-1 group">
+<div class="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center text-green-600 shadow-sm group-hover:scale-110 transition-transform opacity-40 grayscale">
+<span class="material-symbols-outlined text-3xl">local_fire_department</span>
+</div>
+<span class="text-[10px] font-bold text-center">Flashcard Pro</span>
+</div>
+</div>
+</section>
+<!-- Quick Help / Tutor -->
+<div class="bg-primary p-6 rounded-xl text-white relative overflow-hidden group">
+<div class="relative z-10">
+<h3 class="font-bold text-lg mb-1">Stuck on a topic?</h3>
+<p class="text-xs text-blue-100 mb-4 leading-relaxed">Connect with a top-rated tutor in minutes for one-on-one help.</p>
+<button class="bg-white text-primary px-4 py-2 rounded-lg font-bold text-sm hover:bg-blue-50 transition-colors shadow-lg">
+                            Get Help Now
+                        </button>
+</div>
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-8xl text-blue-400/20 rotate-12 group-hover:scale-110 transition-transform">school</span>
+</div>
+</aside>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 md:hidden bg-surface dark:bg-inverse-surface shadow-[0_-4px_12px_rgba(0,74,198,0.05)] rounded-t-xl">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest p-1 rounded-lg">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest p-1 rounded-lg">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-md text-label-md">Learn</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary-fixed-variant text-on-primary-container dark:text-on-primary-fixed-variant rounded-full px-4 py-1 scale-90 transition-all duration-200">
+<span class="material-symbols-outlined">edit_note</span>
+<span class="font-label-md text-label-md">Practice</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest p-1 rounded-lg">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-md text-label-md">Tutors</span>
+</button>
+</nav>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant/20 dark:border-outline/20 w-full py-16 px-margin-desktop">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-gutter-desktop">
+<div class="col-span-1 md:col-span-1">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim mb-4 block">Learn Edmore</span>
+<p class="text-on-surface-variant text-sm pr-4">Personalized learning paths for every student, powered by expert insights and interactive content.</p>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-4">Resources</h4>
+<ul class="space-y-2 text-on-surface-variant text-sm">
+<li><a class="hover:text-secondary transition-colors" href="#">Curriculum</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Study Guides</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Scholarships</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-4">Support</h4>
+<ul class="space-y-2 text-on-surface-variant text-sm">
+<li><a class="hover:text-secondary transition-colors" href="#">Expert Tutors</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Contact Support</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-4">Community</h4>
+<div class="flex gap-4">
+<a class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined text-sm">chat</span></a>
+<a class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined text-sm">group</span></a>
+</div>
+<p class="text-[10px] text-outline mt-8 uppercase tracking-widest font-bold">© 2024 Learn Edmore Resources</p>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for goal toggling
+        document.querySelectorAll('.cursor-pointer.group').forEach(item => {
+            item.addEventListener('click', function() {
+                const icon = this.querySelector('.material-symbols-outlined');
+                const checkbox = this.querySelector('div:first-child');
+                
+                if (icon.innerText === 'circle') {
+                    icon.innerText = 'check';
+                    checkbox.classList.add('bg-secondary', 'text-white', 'border-secondary');
+                    checkbox.classList.remove('text-transparent');
+                } else {
+                    icon.innerText = 'circle';
+                    checkbox.classList.remove('bg-secondary', 'text-white', 'border-secondary');
+                    checkbox.classList.add('text-transparent');
+                }
+            });
+        });
+    </script>
+</body></html>

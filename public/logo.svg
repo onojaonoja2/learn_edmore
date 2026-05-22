@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 48" fill="none">
+  <defs>
+    <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="10" width="28" height="26" rx="6" fill="url(#brandGrad)"/>
+  <path d="M18 14L10 22h4v8h8v-8h4L18 14z" fill="#fff" opacity="0.9"/>
+  <path d="M14 24h8" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <path d="M14 28h6" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+  <path d="M18 6l-3 4h6l-3-4z" fill="#FBBF24"/>
+  <text x="42" y="30" font-family="Quicksand, sans-serif" font-size="22" font-weight="700" fill="#0d1c2e" letter-spacing="-0.01">Learn Edmore</text>
+  <text x="42" y="42" font-family="Inter, sans-serif" font-size="10" font-weight="500" fill="#2563EB" letter-spacing="0.15">TUTORING ACADEMY</text>
+</svg>

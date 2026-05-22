@@ -1,0 +1,250 @@
+import Navbar from '@/components/Navbar'
+import MobileNav from '@/components/MobileNav'
+import Footer from '@/components/Footer'
+import SectionHeading from '@/components/SectionHeading'
+import Badge from '@/components/Badge'
+
+const subjects = [
+  {
+    title: 'Mathematics',
+    description:
+      'From basic numeracy to advanced problem-solving, our Maths program builds confidence through interactive exercises and real-world applications.',
+    accent: 'border-primary',
+    badge: 'Primary & Middle',
+    badgeVariant: 'primary' as const,
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2v4M6 4l3 3M18 4l-3 3M4 14h4M16 14h4M12 18v-4M8 22l4-4 4 4" />
+        <circle cx="12" cy="12" r="10" />
+      </svg>
+    ),
+  },
+  {
+    title: 'English Language',
+    description:
+      'Develop strong reading comprehension, creative writing, grammar, and oral communication skills through engaging literary activities.',
+    accent: 'border-secondary',
+    badge: 'Early Years & Primary',
+    badgeVariant: 'secondary' as const,
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+        <path d="M8 12h6M8 8h8M8 16h4" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Science',
+    description:
+      'Spark curiosity with hands-on experiments and explorations covering biology, physics, chemistry, and environmental science.',
+    accent: 'border-tertiary',
+    badge: 'Middle School',
+    badgeVariant: 'tertiary' as const,
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M10 2v6a4 4 0 0 1-4 4H2" />
+        <path d="M14 2v6a4 4 0 0 0 4 4h4" />
+        <path d="M12 16V2" />
+        <path d="M8 22h8" />
+        <path d="M12 16v6" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Social Studies',
+    description:
+      'Explore Nigerian history, geography, civic education, and cultural heritage to build informed and responsible future citizens.',
+    accent: 'border-primary',
+    badge: 'All Levels',
+    badgeVariant: 'primary' as const,
+    wide: true,
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M2 12h20" />
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Creative Arts',
+    description:
+      'Nurture creativity through drawing, painting, music, and drama — building self-expression and fine motor skills.',
+    accent: 'border-secondary',
+    badge: 'Early Years',
+    badgeVariant: 'secondary' as const,
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="13.5" cy="6.5" r="2.5" />
+        <path d="M17 20L9 8l-5 8 3 4 7-4 3 4z" />
+        <path d="M17 20V8" />
+      </svg>
+    ),
+  },
+]
+
+export default function SubjectsPage() {
+  return (
+    <>
+      <Navbar active="Subjects" />
+
+      <main className="flex-1">
+        {/* Hero */}
+        <section className="bg-gradient-to-b from-surface to-surface-container-low py-16 md:py-24">
+          <div className="mx-auto max-w-7xl px-5 text-center md:px-12">
+            <span className="mb-4 inline-block rounded-full bg-primary-fixed px-4 py-1.5 text-xs font-semibold text-primary">
+              Our Curriculum
+            </span>
+            <h1 className="text-4xl font-bold leading-tight text-on-surface md:text-5xl font-heading">
+              Discover Your Next Lesson
+            </h1>
+            <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-on-surface-variant">
+              Curated educational resources designed to inspire a love for
+              learning in every child, from early years through middle school.
+            </p>
+          </div>
+        </section>
+
+        {/* Search & Filter */}
+        <section className="pb-8">
+          <div className="mx-auto max-w-7xl px-5 md:px-12">
+            <div className="flex flex-col items-center gap-4 rounded-2xl bg-surface-container-lowest p-6 shadow-ambient-sm md:flex-row">
+              <div className="relative flex-1">
+                <svg className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-outline" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="M21 21l-4.35-4.35" />
+                </svg>
+                <input
+                  type="text"
+                  placeholder="Search subjects..."
+                  className="w-full rounded-full border border-outline-variant bg-surface py-3 pl-12 pr-4 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10"
+                />
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {['All Levels', 'Early Years', 'Primary', 'Middle School'].map(
+                  (level) => (
+                    <button
+                      key={level}
+                      className={`rounded-full px-4 py-2 text-xs font-semibold transition-colors ${
+                        level === 'All Levels'
+                          ? 'bg-primary-container text-on-primary-container'
+                          : 'bg-surface-container text-on-surface-variant hover:bg-surface-container-high'
+                      }`}
+                    >
+                      {level}
+                    </button>
+                  )
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Subject Grid */}
+        <section className="pb-20 md:pb-28">
+          <div className="mx-auto max-w-7xl px-5 md:px-12">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {subjects.map((s) => (
+                <div
+                  key={s.title}
+                  className={`group rounded-2xl border-t-4 ${s.accent} bg-surface-container-lowest p-6 shadow-ambient-sm transition-all hover:-translate-y-1 hover:shadow-ambient-md ${
+                    s.wide ? 'md:col-span-2 md:flex md:items-center md:gap-8' : ''
+                  }`}
+                >
+                  <div
+                    className={`mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl transition-colors ${
+                      s.accent === 'border-primary'
+                        ? 'bg-primary-fixed text-primary group-hover:bg-primary group-hover:text-on-primary'
+                        : s.accent === 'border-secondary'
+                          ? 'bg-secondary-fixed/30 text-secondary group-hover:bg-secondary group-hover:text-on-secondary'
+                          : 'bg-tertiary-fixed text-tertiary group-hover:bg-tertiary group-hover:text-on-tertiary'
+                    } ${s.wide ? 'md:mb-0 md:shrink-0' : ''}`}
+                  >
+                    {s.icon}
+                  </div>
+                  <div className={s.wide ? 'flex-1' : ''}>
+                    <div className="mb-2 flex items-center gap-3">
+                      <h3 className="text-lg font-bold text-on-surface font-heading">
+                        {s.title}
+                      </h3>
+                      <Badge variant={s.badgeVariant}>{s.badge}</Badge>
+                    </div>
+                    <p className="mb-4 text-sm leading-relaxed text-on-surface-variant">
+                      {s.description}
+                    </p>
+                    <a
+                      href="/tutors"
+                      className={`inline-flex items-center gap-2 rounded-full border px-5 py-2 text-xs font-semibold transition-colors ${
+                        s.accent === 'border-primary'
+                          ? 'border-primary text-primary hover:bg-primary hover:text-on-primary'
+                          : s.accent === 'border-secondary'
+                            ? 'border-secondary text-secondary hover:bg-secondary hover:text-on-secondary'
+                            : 'border-tertiary text-tertiary hover:bg-tertiary hover:text-on-tertiary'
+                      }`}
+                    >
+                      Explore Resources &rarr;
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Feature Highlight */}
+        <section className="bg-primary-fixed py-20 md:py-28">
+          <div className="mx-auto max-w-7xl px-5 md:px-12">
+            <div className="grid items-center gap-12 md:grid-cols-2">
+              <div className="relative">
+                <div className="relative aspect-[4/3] w-full rounded-3xl bg-gradient-to-br from-primary-container to-primary-fixed-dim p-2">
+                  <div className="flex h-full w-full items-center justify-center rounded-2xl bg-surface-container-lowest">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#004ac6" strokeWidth="1" className="opacity-30">
+                      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="absolute -bottom-4 -right-4 rounded-2xl bg-secondary-fixed/40 p-4 shadow-ambient-md backdrop-blur-sm">
+                  <div className="text-lg font-bold text-secondary">500+</div>
+                  <div className="text-xs text-secondary">New Study Guides</div>
+                </div>
+              </div>
+              <div>
+                <span className="mb-3 inline-block rounded-full bg-primary px-4 py-1.5 text-xs font-semibold text-on-primary">
+                  Expertly Crafted
+                </span>
+                <h2 className="text-3xl font-bold leading-tight text-on-surface md:text-4xl font-heading">
+                  Expertly Crafted Curriculum
+                </h2>
+                <ul className="mt-6 space-y-4">
+                  {[
+                    'Aligned with Nigerian national educational standards',
+                    'Interactive quizzes with instant feedback',
+                    'Downloadable resources for offline practice',
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm text-on-surface">
+                      <svg className="mt-0.5 h-5 w-5 shrink-0 text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href="/tutors"
+                  className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-semibold text-on-primary transition-all hover:opacity-90 active:scale-[0.98]"
+                >
+                  View All Study Guides
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+      <MobileNav active="Learn" />
+    </>
+  )
+}
