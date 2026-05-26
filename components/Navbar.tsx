@@ -9,6 +9,7 @@ const navLinks = [
   { label: 'Subjects', href: '/subjects' },
   { label: 'Exam Prep', href: '/exam-prep' },
   { label: 'Tutors', href: '/tutors' },
+  { label: 'Contact', href: '/contact' },
 ]
 
 export default function Navbar({ active }: { active?: string }) {
@@ -58,13 +59,13 @@ export default function Navbar({ active }: { active?: string }) {
 
         <div className="hidden items-center gap-3 md:flex">
           <Link
-            href="/tutors"
+            href="/login"
             className="rounded-full border border-outline-variant px-5 py-2 text-sm font-semibold text-on-surface-variant transition-colors hover:border-primary hover:text-primary"
           >
             Login
           </Link>
           <Link
-            href="/subjects"
+            href="/get-started"
             className="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-on-primary transition-opacity hover:opacity-90"
           >
             Get Started
