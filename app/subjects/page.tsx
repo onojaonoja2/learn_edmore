@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Navbar from '@/components/Navbar'
 import MobileNav from '@/components/MobileNav'
 import Footer from '@/components/Footer'
@@ -197,13 +198,15 @@ export default function SubjectsPage() {
           <div className="mx-auto max-w-7xl px-5 md:px-12">
             <div className="grid items-center gap-12 md:grid-cols-2">
               <div className="relative">
-                <div className="relative aspect-[4/3] w-full rounded-3xl bg-gradient-to-br from-primary-container to-primary-fixed-dim p-2">
-                  <div className="flex h-full w-full items-center justify-center rounded-2xl bg-surface-container-lowest">
-                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#004ac6" strokeWidth="1" className="opacity-30">
-                      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-                    </svg>
-                  </div>
+                <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-ambient-sm transition-all duration-500 hover:shadow-ambient-lg">
+                  <Image
+                    src="/curriculum_image.png"
+                    alt="Expertly crafted curriculum study guides"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-primary/0 transition-colors duration-500 group-hover:bg-primary/5" />
                 </div>
                 <div className="absolute -bottom-4 -right-4 rounded-2xl bg-secondary-fixed/40 p-4 shadow-ambient-md backdrop-blur-sm">
                   <div className="text-lg font-bold text-secondary">500+</div>
@@ -232,7 +235,7 @@ export default function SubjectsPage() {
                   ))}
                 </ul>
                 <a
-                  href="/tutors"
+                  href="/get-started"
                   className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-semibold text-on-primary transition-all hover:opacity-90 active:scale-[0.98]"
                 >
                   View All Study Guides

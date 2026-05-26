@@ -1,9 +1,9 @@
-import Image from 'next/image'
 import Navbar from '@/components/Navbar'
 import MobileNav from '@/components/MobileNav'
 import Footer from '@/components/Footer'
 import SectionHeading from '@/components/SectionHeading'
 import Badge from '@/components/Badge'
+import HeroSlider from '@/components/HeroSlider'
 
 const subjects = [
   {
@@ -110,23 +110,7 @@ export default function HomePage() {
                   </a>
                 </div>
               </div>
-              <div className="relative flex justify-center">
-                <div className="relative h-72 w-72 md:h-96 md:w-96">
-                  <div className="absolute -top-4 right-8 h-full w-full rounded-[2rem] bg-primary-container/40" />
-                  <div className="relative flex h-full w-full items-center justify-center rounded-[2rem] bg-gradient-to-br from-primary-fixed to-surface-container-high">
-                    <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#004ac6" strokeWidth="1" className="opacity-50">
-                      <circle cx="12" cy="8" r="5" />
-                      <path d="M3 21v-2a7 7 0 0 1 7-7h4a7 7 0 0 1 7 7v2" />
-                    </svg>
-                  </div>
-                </div>
-                <span className="absolute -left-2 top-6 flex h-12 w-12 items-center justify-center rounded-full bg-tertiary-fixed text-lg animate-bounce">
-                  💡
-                </span>
-                <span className="absolute -bottom-2 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-secondary-fixed/50 text-lg">
-                  ✨
-                </span>
-              </div>
+              <HeroSlider />
             </div>
           </div>
         </section>

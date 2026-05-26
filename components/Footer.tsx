@@ -9,10 +9,11 @@ export default function Footer() {
           <div>
             <Link href="/" className="mb-4 flex items-center gap-2">
               <Image
-                src="/brand-mark.svg"
+                src="/learn_edmore_logo.png"
                 alt="Learn Edmore"
-                width={28}
-                height={28}
+                width={120}
+                height={34}
+                className="h-7 w-auto shrink-0"
               />
               <span className="text-lg font-bold text-on-surface font-heading">
                 Learn Edmore

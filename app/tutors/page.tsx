@@ -14,7 +14,6 @@ const tutors = [
     specialties: ['Primary Math', 'Algebra', 'Geometry'],
     experience: '8 years',
     grades: 'Grade 1-9',
-    price: '15,000/hr',
     accent: 'border-primary',
     avatar: 'CO',
     online: true,
@@ -27,7 +26,6 @@ const tutors = [
     specialties: ['General Science', 'Basic Tech', 'Biology'],
     experience: '6 years',
     grades: 'Grade 4-9',
-    price: '12,000/hr',
     accent: 'border-secondary',
     avatar: 'EO',
     online: true,
@@ -40,7 +38,6 @@ const tutors = [
     specialties: ['Creative Writing', 'Reading', 'Grammar'],
     experience: '5 years',
     grades: 'Pre-School - Grade 6',
-    price: '10,000/hr',
     accent: 'border-tertiary',
     avatar: 'FA',
     online: false,
@@ -54,7 +51,6 @@ const tutors = [
     specialties: ['Common Entrance', 'Junior WAEC', 'Scholarship Prep'],
     experience: '10 years',
     grades: 'Grade 4-9',
-    price: '18,000/hr',
     accent: 'border-primary',
     avatar: 'YB',
     online: true,
@@ -67,7 +63,6 @@ const tutors = [
     specialties: ['Early Literacy', 'Numeracy', 'Phonics'],
     experience: '7 years',
     grades: 'Pre-School - Grade 3',
-    price: '9,000/hr',
     accent: 'border-secondary',
     avatar: 'NE',
     online: true,
@@ -80,7 +75,6 @@ const tutors = [
     specialties: ['Nigerian History', 'Geography', 'Civic Ed'],
     experience: '4 years',
     grades: 'Grade 4-9',
-    price: '10,000/hr',
     accent: 'border-tertiary',
     avatar: 'TB',
     online: false,
@@ -231,13 +225,13 @@ export default function TutorsPage() {
                     </span>
                   </div>
 
-                  <div className="flex items-center justify-between border-t border-outline-variant pt-4">
-                    <span className="text-lg font-bold text-secondary">
-                      ₦{t.price}
-                    </span>
-                    <button className="rounded-full border border-secondary px-5 py-2 text-xs font-semibold text-secondary transition-colors hover:bg-secondary hover:text-on-secondary active:scale-[0.98]">
+                  <div className="pt-4">
+                    <a
+                      href="/get-started"
+                      className="block w-full rounded-full bg-secondary px-5 py-2.5 text-center text-xs font-semibold text-on-secondary transition-all hover:opacity-90 active:scale-[0.98]"
+                    >
                       Book a Session
-                    </button>
+                    </a>
                   </div>
                 </div>
               ))}

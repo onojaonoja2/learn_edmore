@@ -42,18 +42,18 @@ export default function GetStartedPage() {
       <main className="flex-1 bg-gradient-to-b from-surface to-surface-container-low px-5 py-16 md:py-20">
         <div className="mx-auto max-w-2xl">
           {/* Steps Indicator */}
-          <div className="mb-10 flex items-center justify-center gap-2">
+          <div className="mb-10 flex items-center justify-center gap-1 sm:gap-2">
             {[1, 2, 3].map((s) => (
-              <div key={s} className="flex items-center gap-2">
+              <div key={s} className="flex items-center gap-1 sm:gap-2">
                 <div
-                  className={`flex h-9 w-9 items-center justify-center rounded-full text-sm font-bold transition-colors ${
+                  className={`flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full text-xs sm:text-sm font-bold transition-colors ${
                     s <= step
                       ? 'bg-primary text-on-primary'
                       : 'bg-surface-container text-on-surface-variant'
                   }`}
                 >
                   {s < step ? (
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                   ) : (
@@ -62,7 +62,7 @@ export default function GetStartedPage() {
                 </div>
                 {s < 3 && (
                   <div
-                    className={`h-0.5 w-12 transition-colors ${
+                    className={`h-0.5 w-6 sm:w-12 transition-colors ${
                       s < step ? 'bg-primary' : 'bg-outline-variant'
                     }`}
                   />
