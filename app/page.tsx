@@ -49,6 +49,62 @@ const subjects = [
       </svg>
     ),
   },
+  {
+    title: 'Yoruba',
+    description:
+      'Learn to read, write, and speak Yoruba with lessons on vocabulary, grammar, and cultural traditions.',
+    accent: 'border-primary',
+    iconBg: 'bg-primary-fixed text-primary',
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M2 12h20" />
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Igbo',
+    description:
+      'Master Igbo language skills through immersive lessons in speaking, reading, writing, and cultural appreciation.',
+    accent: 'border-secondary',
+    iconBg: 'bg-secondary-fixed/30 text-secondary',
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M2 12h20" />
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Hausa',
+    description:
+      'Explore the Hausa language with structured lessons on conversation, writing, and Northern Nigerian culture.',
+    accent: 'border-tertiary',
+    iconBg: 'bg-tertiary-fixed text-tertiary',
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M2 12h20" />
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+      </svg>
+    ),
+  },
+  {
+    title: 'French',
+    description:
+      'Build French language proficiency with lessons in vocabulary, grammar, conversation, and Francophone culture.',
+    accent: 'border-primary',
+    iconBg: 'bg-primary-fixed text-primary',
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M2 12h20" />
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+      </svg>
+    ),
+  },
 ]
 
 const testimonials = [
@@ -97,7 +153,7 @@ export default function HomePage() {
                 </p>
                 <div className="mt-8 flex flex-wrap gap-4">
                   <a
-                    href="/subjects"
+                    href="/get-started"
                     className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-semibold text-on-primary transition-all hover:opacity-90 active:scale-[0.98]"
                   >
                     Start Learning Today

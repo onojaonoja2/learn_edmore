@@ -27,7 +27,7 @@ const goals = [
   },
 ]
 
-const subjects = ['Math', 'Science', 'English']
+const subjects = ['Math', 'Science', 'English', 'Yoruba', 'Igbo', 'Hausa', 'French']
 
 export default function ExamPrepPage() {
   const [checked, setChecked] = useState([true, false, false])

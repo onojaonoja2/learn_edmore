@@ -13,6 +13,10 @@ const subjects = [
   'Social Studies',
   'Creative Arts',
   'Early Literacy',
+  'Yoruba',
+  'Igbo',
+  'Hausa',
+  'French',
 ]
 
 const gradeLevels = [

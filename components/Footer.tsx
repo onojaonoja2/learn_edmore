@@ -44,10 +44,10 @@ export default function Footer() {
               Opportunities
             </h4>
             <ul className="space-y-2.5 text-sm text-on-surface-variant">
-              <li><Link href="/" className="hover:text-primary transition-colors">Become a Tutor</Link></li>
+              <li><Link href="/become-a-tutor" className="hover:text-primary transition-colors">Become a Tutor</Link></li>
               <li><Link href="/" className="hover:text-primary transition-colors">Scholarships</Link></li>
-              <li><Link href="/" className="hover:text-primary transition-colors">Partnerships</Link></li>
-              <li><Link href="/" className="hover:text-primary transition-colors">Careers</Link></li>
+              <li><Link href="/partnerships" className="hover:text-primary transition-colors">Partnerships</Link></li>
+              <li><Link href="/careers" className="hover:text-primary transition-colors">Careers</Link></li>
             </ul>
           </div>
 

@@ -23,6 +23,7 @@ const tutors = [
     role: 'Science & STEM Tutor',
     rating: 4.8,
     reviews: 94,
+    topRated: true,
     specialties: ['General Science', 'Basic Tech', 'Biology'],
     experience: '6 years',
     grades: 'Grade 4-9',
@@ -35,6 +36,7 @@ const tutors = [
     role: 'English & Literacy Coach',
     rating: 4.7,
     reviews: 76,
+    topRated: true,
     specialties: ['Creative Writing', 'Reading', 'Grammar'],
     experience: '5 years',
     grades: 'Pre-School - Grade 6',
@@ -60,6 +62,7 @@ const tutors = [
     role: 'Early Years Educator',
     rating: 4.9,
     reviews: 88,
+    topRated: true,
     specialties: ['Early Literacy', 'Numeracy', 'Phonics'],
     experience: '7 years',
     grades: 'Pre-School - Grade 3',
@@ -72,6 +75,7 @@ const tutors = [
     role: 'Social Studies & Civic',
     rating: 4.6,
     reviews: 53,
+    topRated: true,
     specialties: ['Nigerian History', 'Geography', 'Civic Ed'],
     experience: '4 years',
     grades: 'Grade 4-9',
@@ -253,7 +257,7 @@ export default function TutorsPage() {
                     Apply now for the upcoming academic session.
                   </p>
                   <a
-                    href="/"
+                    href="/contact"
                     className="mt-6 inline-flex items-center gap-2 rounded-full bg-on-primary-container px-6 py-2.5 text-sm font-semibold text-primary-container transition-all hover:opacity-90 active:scale-[0.98]"
                   >
                     Learn More
