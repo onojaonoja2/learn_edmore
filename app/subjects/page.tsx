@@ -59,7 +59,6 @@ const subjects = [
     accent: 'border-primary',
     badge: 'All Levels',
     badgeVariant: 'primary' as const,
-    wide: true,
     icon: (
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10" />
@@ -183,41 +182,6 @@ export default function SubjectsPage() {
           </div>
         </section>
 
-        {/* Search & Filter */}
-        <section className="pb-8">
-          <div className="mx-auto max-w-7xl px-5 md:px-12">
-            <div className="flex flex-col items-center gap-4 rounded-2xl bg-surface-container-lowest p-6 shadow-ambient-sm md:flex-row">
-              <div className="relative flex-1">
-                <svg className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-outline" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="11" cy="11" r="8" />
-                  <path d="M21 21l-4.35-4.35" />
-                </svg>
-                <input
-                  type="text"
-                  placeholder="Search subjects..."
-                  className="w-full rounded-full border border-outline-variant bg-surface py-3 pl-12 pr-4 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10"
-                />
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {['All Levels', 'Early Years', 'Primary', 'Middle School'].map(
-                  (level) => (
-                    <button
-                      key={level}
-                      className={`rounded-full px-4 py-2 text-xs font-semibold transition-colors ${
-                        level === 'All Levels'
-                          ? 'bg-primary-container text-on-primary-container'
-                          : 'bg-surface-container text-on-surface-variant hover:bg-surface-container-high'
-                      }`}
-                    >
-                      {level}
-                    </button>
-                  )
-                )}
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Subject Grid */}
         <section className="pb-20 md:pb-28">
           <div className="mx-auto max-w-7xl px-5 md:px-12">
@@ -225,9 +189,7 @@ export default function SubjectsPage() {
               {subjects.map((s) => (
                 <div
                   key={s.title}
-                  className={`group rounded-2xl border-t-4 ${s.accent} bg-surface-container-lowest p-6 shadow-ambient-sm transition-all hover:-translate-y-1 hover:shadow-ambient-md ${
-                    s.wide ? 'md:col-span-2 md:flex md:items-center md:gap-8' : ''
-                  }`}
+                  className={`group rounded-2xl border-t-4 ${s.accent} bg-surface-container-lowest p-6 shadow-ambient-sm transition-all hover:-translate-y-1 hover:shadow-ambient-md`}
                 >
                   <div
                     className={`mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl transition-colors ${
@@ -236,11 +198,11 @@ export default function SubjectsPage() {
                         : s.accent === 'border-secondary'
                           ? 'bg-secondary-fixed/30 text-secondary group-hover:bg-secondary group-hover:text-on-secondary'
                           : 'bg-tertiary-fixed text-tertiary group-hover:bg-tertiary group-hover:text-on-tertiary'
-                    } ${s.wide ? 'md:mb-0 md:shrink-0' : ''}`}
+                    }`}
                   >
                     {s.icon}
                   </div>
-                  <div className={s.wide ? 'flex-1' : ''}>
+                  <div>
                     <div className="mb-2 flex flex-wrap items-center gap-2">
                       <h3 className="text-lg font-bold text-on-surface font-heading">
                         {s.title}

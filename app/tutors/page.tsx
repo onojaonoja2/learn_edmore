@@ -83,6 +83,45 @@ const tutors = [
     avatar: 'TB',
     online: false,
   },
+  {
+    name: 'Adanna Nwosu',
+    role: 'Igbo Language Tutor',
+    rating: 4.8,
+    reviews: 67,
+    topRated: true,
+    specialties: ['Igbo Literature', 'Igbo Oral Tradition', 'Cultural Studies'],
+    experience: '6 years',
+    grades: 'All Levels',
+    accent: 'border-primary',
+    avatar: 'AN',
+    online: true,
+  },
+  {
+    name: 'Babatunde Adeleke',
+    role: 'Yoruba Language Tutor',
+    rating: 4.7,
+    reviews: 59,
+    topRated: false,
+    specialties: ['Yoruba Grammar', 'Yoruba Poetry', 'Conversational Yoruba'],
+    experience: '5 years',
+    grades: 'All Levels',
+    accent: 'border-secondary',
+    avatar: 'BA',
+    online: true,
+  },
+  {
+    name: 'Chantal Dupont',
+    role: 'French Language Tutor',
+    rating: 4.9,
+    reviews: 82,
+    topRated: true,
+    specialties: ['French Grammar', 'Conversational French', 'DELF Prep'],
+    experience: '8 years',
+    grades: 'All Levels',
+    accent: 'border-tertiary',
+    avatar: 'CD',
+    online: false,
+  },
 ]
 
 export default function TutorsPage() {
@@ -91,7 +130,7 @@ export default function TutorsPage() {
       <Navbar active="Tutors" />
 
       <main className="flex-1">
-        {/* Hero & Filter */}
+        {/* Hero */}
         <section className="bg-gradient-to-b from-surface to-surface-container-low pb-12 pt-16 md:pt-20">
           <div className="mx-auto max-w-7xl px-5 text-center md:px-12">
             <span className="mb-4 inline-block rounded-full bg-primary-fixed px-4 py-1.5 text-xs font-semibold text-primary">
@@ -104,60 +143,6 @@ export default function TutorsPage() {
               Connect with Abuja&apos;s most qualified tutors who are passionate
               about helping your child succeed.
             </p>
-          </div>
-
-          <div className="mx-auto mt-10 max-w-7xl px-5 md:px-12">
-            <div className="grid gap-4 rounded-2xl bg-surface-container-lowest p-6 shadow-ambient-sm md:grid-cols-4">
-              <div>
-                <label className="mb-1.5 block text-xs font-semibold text-on-surface-variant">
-                  Subject
-                </label>
-                <select className="w-full rounded-full border border-outline-variant bg-surface px-4 py-2.5 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10">
-                  <option>All Subjects</option>
-                  <option>Early Literacy</option>
-                  <option>Primary Math</option>
-                  <option>Creative Arts</option>
-                  <option>Science Discovery</option>
-                </select>
-              </div>
-              <div>
-                <label className="mb-1.5 block text-xs font-semibold text-on-surface-variant">
-                  Grade Level
-                </label>
-                <select className="w-full rounded-full border border-outline-variant bg-surface px-4 py-2.5 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10">
-                  <option>All Grades</option>
-                  <option>Pre-School</option>
-                  <option>Kindergarten</option>
-                  <option>Grade 1-3</option>
-                  <option>Grade 4-6</option>
-                </select>
-              </div>
-              <div className="flex items-end">
-                <label className="relative inline-flex cursor-pointer items-center gap-3">
-                  <input type="checkbox" className="peer sr-only" defaultChecked />
-                  <div className="h-6 w-11 rounded-full bg-outline-variant after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:bg-white after:transition-all peer-checked:bg-primary peer-checked:after:translate-x-full" />
-                  <span className="text-sm font-semibold text-on-surface">
-                    Available Now
-                  </span>
-                </label>
-              </div>
-              <div className="flex items-end">
-                <button className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-on-primary transition-all hover:opacity-90 active:scale-[0.98]">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="4" y1="21" x2="4" y2="14" />
-                    <line x1="4" y1="10" x2="4" y2="3" />
-                    <line x1="12" y1="21" x2="12" y2="12" />
-                    <line x1="12" y1="8" x2="12" y2="3" />
-                    <line x1="20" y1="21" x2="20" y2="16" />
-                    <line x1="20" y1="12" x2="20" y2="3" />
-                    <line x1="1" y1="14" x2="7" y2="14" />
-                    <line x1="9" y1="8" x2="15" y2="8" />
-                    <line x1="17" y1="16" x2="23" y2="16" />
-                  </svg>
-                  Apply Filters
-                </button>
-              </div>
-            </div>
           </div>
         </section>
 
