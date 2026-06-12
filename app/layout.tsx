@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     default: "Learn Edmore — Tutoring Academy Abuja",
   },
   description:
-    "Abuja's trusted tutoring academy for early learners to grade school. Unlock your child's potential with expert-led lessons in Maths, English, Science, and more.",
+    "An Abuja-based online and on-site tutoring academy with a global online reach. Expert-led lessons in Mathematics, English Language, Igbo Language, Science, Adult Literacy, and more.",
   icons: {
     icon: "/brand-mark.svg",
   },
   openGraph: {
     title: "Learn Edmore Tutoring Academy",
     description:
-      "Abuja's trusted tutoring academy. Expert-led lessons in Maths, English, Science, and more for early learners to grade school.",
+      "An Abuja-based online and on-site tutoring academy with a global online reach. Expert-led lessons in Mathematics, English Language, Igbo Language, Science, Adult Literacy, and more.",
     url: "https://learnedmore.com",
     siteName: "Learn Edmore",
     locale: "en_NG",

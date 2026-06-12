@@ -20,7 +20,7 @@ const subjects = [
     ),
   },
   {
-    title: 'English & Literacy',
+    title: 'English Language',
     description:
       'Develop reading comprehension, creative writing, and communication skills through engaging activities.',
     accent: 'border-secondary',
@@ -64,7 +64,7 @@ const subjects = [
     ),
   },
   {
-    title: 'Igbo',
+    title: 'Igbo Language',
     description:
       'Master Igbo language skills through immersive lessons in speaking, reading, writing, and cultural appreciation.',
     accent: 'border-secondary',
@@ -102,6 +102,20 @@ const subjects = [
         <circle cx="12" cy="12" r="10" />
         <path d="M2 12h20" />
         <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Adult Literacy',
+    description:
+      'Empower adults with foundational literacy and numeracy skills for personal and professional growth.',
+    accent: 'border-secondary',
+    iconBg: 'bg-secondary-fixed/30 text-secondary',
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+        <line x1="8" y1="12" x2="16" y2="12" />
       </svg>
     ),
   },
@@ -147,9 +161,10 @@ export default function HomePage() {
                   <span className="text-primary">Child&apos;s Potential</span>
                 </h1>
                 <p className="mt-5 max-w-lg text-base leading-relaxed text-on-surface-variant md:text-lg">
-                  Abuja&apos;s premier tutoring academy offering expert-led
-                  lessons in Mathematics, English, Science, and more for early
-                  learners to grade school students.
+                  An Abuja-based online and on-site tutoring academy with a
+                  global online reach. Expert-led lessons in Mathematics,
+                  English Language, Igbo Language, Science, Adult Literacy,
+                  and more for early learners to grade school students.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-4">
                   <a
@@ -177,7 +192,7 @@ export default function HomePage() {
             <SectionHeading
               badge="Our Programs"
               title="Subjects We Cover"
-              description="Comprehensive curriculum designed to build confidence and academic excellence across all core subjects."
+              description="Comprehensive curriculum designed to build confidence and academic excellence across all core subjects. Available online and on-site."
             />
             <div className="grid gap-6 md:grid-cols-3">
               {subjects.map((s) => (
@@ -196,6 +211,9 @@ export default function HomePage() {
                   <p className="mb-4 text-sm leading-relaxed text-on-surface-variant">
                     {s.description}
                   </p>
+                  <span className="mb-3 inline-block rounded-full bg-primary-fixed px-3 py-0.5 text-[10px] font-semibold text-primary">
+                    Online Classes Available
+                  </span>
                   <a
                     href="/subjects"
                     className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
@@ -214,7 +232,7 @@ export default function HomePage() {
             <SectionHeading
               badge="Exam Success"
               title="Built for Academic Excellence"
-              description="Targeted preparation for Nigeria's key examinations including Common Entrance, Junior WAEC, and termly assessments."
+              description="Targeted preparation for Nigeria's key examinations including Common Entrance, Junior WAEC, Senior WAEC, Checkpoint, and Cambridge exams."
             />
             <div className="grid gap-6 lg:grid-cols-12">
               <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary-container p-8 text-on-primary lg:col-span-7">

@@ -20,8 +20,9 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mt-3 text-sm leading-relaxed text-on-surface-variant">
-              Abuja&apos;s trusted tutoring academy, empowering young learners
-              with expert-led education from early years to grade school.
+              An Abuja-based online and on-site tutoring academy with a global
+              online reach, empowering learners with expert-led education from
+              early years to adult literacy.
             </p>
           </div>
 
@@ -60,6 +61,16 @@ export default function Footer() {
               <li><Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link></li>
               <li><Link href="/" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
               <li><Link href="/" className="hover:text-primary transition-colors">Terms of Service</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="mb-4 text-sm font-semibold text-on-surface">
+              Working Hours
+            </h4>
+            <ul className="space-y-2 text-sm text-on-surface-variant">
+              <li>On-site: 8am &ndash; 6pm</li>
+              <li>Online: 8am &ndash; 10pm</li>
             </ul>
           </div>
         </div>

@@ -143,6 +143,21 @@ const subjects = [
       </svg>
     ),
   },
+  {
+    title: 'Adult Literacy',
+    description:
+      'Empower adults with foundational literacy and numeracy skills for personal and professional growth.',
+    accent: 'border-secondary',
+    badge: 'All Levels',
+    badgeVariant: 'secondary' as const,
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+        <line x1="8" y1="12" x2="16" y2="12" />
+      </svg>
+    ),
+  },
 ]
 
 export default function SubjectsPage() {
@@ -161,8 +176,9 @@ export default function SubjectsPage() {
               Discover Your Next Lesson
             </h1>
             <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-on-surface-variant">
-              Curated educational resources designed to inspire a love for
-              learning in every child, from early years through middle school.
+              Nigerian and Cambridge curriculum resources designed to inspire a
+              love for learning. Available online and on-site for learners at
+              every level.
             </p>
           </div>
         </section>
@@ -225,11 +241,12 @@ export default function SubjectsPage() {
                     {s.icon}
                   </div>
                   <div className={s.wide ? 'flex-1' : ''}>
-                    <div className="mb-2 flex items-center gap-3">
+                    <div className="mb-2 flex flex-wrap items-center gap-2">
                       <h3 className="text-lg font-bold text-on-surface font-heading">
                         {s.title}
                       </h3>
                       <Badge variant={s.badgeVariant}>{s.badge}</Badge>
+                      <Badge variant="primary">Online</Badge>
                     </div>
                     <p className="mb-4 text-sm leading-relaxed text-on-surface-variant">
                       {s.description}
