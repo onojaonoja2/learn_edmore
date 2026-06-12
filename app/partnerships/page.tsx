@@ -12,6 +12,36 @@ const partnershipTypes = [
 
 export default function PartnershipsPage() {
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [formData, setFormData] = useState({
+    full_name: '',
+    organization: '',
+    email: '',
+    phone: '',
+    partnership_type: '',
+    location: '',
+    idea: '',
+  })
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  const handleSubmit = async () => {
+    setSubmitting(true)
+    try {
+      await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ formType: 'partnership_inquiry', ...formData }),
+      })
+      setSubmitted(true)
+    } catch {
+      alert('Failed to submit. Please try again.')
+    } finally {
+      setSubmitting(false)
+    }
+  }
 
   return (
     <>
@@ -57,7 +87,11 @@ export default function PartnershipsPage() {
                     </label>
                     <input
                       type="text"
+                      name="full_name"
+                      value={formData.full_name}
+                      onChange={handleChange}
                       placeholder="Your full name"
+                      required
                       className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10"
                     />
                   </div>
@@ -67,7 +101,11 @@ export default function PartnershipsPage() {
                     </label>
                     <input
                       type="text"
+                      name="organization"
+                      value={formData.organization}
+                      onChange={handleChange}
                       placeholder="School or organization name"
+                      required
                       className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10"
                     />
                   </div>
@@ -80,7 +118,11 @@ export default function PartnershipsPage() {
                     </label>
                     <input
                       type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       placeholder="you@organization.com"
+                      required
                       className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10"
                     />
                   </div>
@@ -90,7 +132,11 @@ export default function PartnershipsPage() {
                     </label>
                     <input
                       type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
                       placeholder="080 XXXX XXXX"
+                      required
                       className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10"
                     />
                   </div>
@@ -100,7 +146,13 @@ export default function PartnershipsPage() {
                   <label className="mb-1.5 block text-sm font-semibold text-on-surface">
                     Partnership Type <span className="text-error">*</span>
                   </label>
-                  <select className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10">
+                  <select
+                    name="partnership_type"
+                    value={formData.partnership_type}
+                    onChange={handleChange}
+                    required
+                    className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10"
+                  >
                     <option value="">Select partnership type</option>
                     {partnershipTypes.map((t) => (
                       <option key={t} value={t}>{t}</option>
@@ -114,6 +166,9 @@ export default function PartnershipsPage() {
                   </label>
                   <input
                     type="text"
+                    name="location"
+                    value={formData.location}
+                    onChange={handleChange}
                     placeholder="Area / District, Abuja"
                     className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10"
                   />
@@ -125,16 +180,20 @@ export default function PartnershipsPage() {
                   </label>
                   <textarea
                     rows={4}
+                    name="idea"
+                    value={formData.idea}
+                    onChange={handleChange}
                     placeholder="Describe how you envision working with Learn Edmore..."
                     className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10 resize-none"
                   />
                 </div>
 
                 <button
-                  onClick={() => setSubmitted(true)}
-                  className="w-full rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-on-primary transition-all hover:opacity-90 active:scale-[0.98]"
+                  onClick={handleSubmit}
+                  disabled={submitting}
+                  className="w-full rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-on-primary transition-all hover:opacity-90 active:scale-[0.98] disabled:opacity-50"
                 >
-                  Submit Inquiry
+                  {submitting ? 'Submitting...' : 'Submit Inquiry'}
                 </button>
               </div>
             </div>

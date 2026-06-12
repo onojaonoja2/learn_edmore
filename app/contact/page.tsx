@@ -1,8 +1,41 @@
+'use client'
+
+import { useState } from 'react'
 import Navbar from '@/components/Navbar'
 import MobileNav from '@/components/MobileNav'
 import Footer from '@/components/Footer'
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: 'General Inquiry',
+    message: '',
+  })
+  const [submitting, setSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setSubmitting(true)
+    try {
+      await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ formType: 'contact_message', ...formData }),
+      })
+      setSubmitted(true)
+    } catch {
+      alert('Failed to send message. Please try again.')
+    } finally {
+      setSubmitting(false)
+    }
+  }
   return (
     <>
       <Navbar />
@@ -29,70 +62,107 @@ export default function ContactPage() {
               <h2 className="mb-6 text-xl font-bold text-on-surface font-heading">
                 Send Us a Message
               </h2>
-              <form className="space-y-5">
-                <div className="grid gap-5 sm:grid-cols-2">
+              {submitted ? (
+                <div className="rounded-2xl bg-surface-container-lowest p-10 text-center shadow-ambient-md">
+                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-secondary-fixed/30">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-on-surface font-heading">
+                    Message Sent!
+                  </h3>
+                  <p className="mt-2 text-sm text-on-surface-variant">
+                    Thank you for reaching out. We will get back to you shortly.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="grid gap-5 sm:grid-cols-2">
+                    <div>
+                      <label className="mb-1.5 block text-sm font-semibold text-on-surface">
+                        Your Name <span className="text-error">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Full name"
+                        required
+                        className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10"
+                      />
+                    </div>
+                    <div>
+                      <label className="mb-1.5 block text-sm font-semibold text-on-surface">
+                        Email Address <span className="text-error">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="you@example.com"
+                        required
+                        className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10"
+                      />
+                    </div>
+                  </div>
                   <div>
                     <label className="mb-1.5 block text-sm font-semibold text-on-surface">
-                      Your Name <span className="text-error">*</span>
+                      Phone Number
                     </label>
                     <input
-                      type="text"
-                      placeholder="Full name"
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="080 XXXX XXXX"
                       className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10"
                     />
                   </div>
                   <div>
                     <label className="mb-1.5 block text-sm font-semibold text-on-surface">
-                      Email Address <span className="text-error">*</span>
+                      Subject
                     </label>
-                    <input
-                      type="email"
-                      placeholder="you@example.com"
+                    <select
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
                       className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10"
+                    >
+                      <option>General Inquiry</option>
+                      <option>Enrolment & Registration</option>
+                      <option>Exam Prep Programs</option>
+                      <option>Tutoring Schedule</option>
+                      <option>Become a Tutor</option>
+                      <option>Partnership & Collaboration</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="mb-1.5 block text-sm font-semibold text-on-surface">
+                      Message <span className="text-error">*</span>
+                    </label>
+                    <textarea
+                      rows={5}
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Tell us how we can help you..."
+                      required
+                      className="w-full resize-none rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10"
                     />
                   </div>
-                </div>
-                <div>
-                  <label className="mb-1.5 block text-sm font-semibold text-on-surface">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    placeholder="080 XXXX XXXX"
-                    className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10"
-                  />
-                </div>
-                <div>
-                  <label className="mb-1.5 block text-sm font-semibold text-on-surface">
-                    Subject
-                  </label>
-                  <select className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10">
-                    <option>General Inquiry</option>
-                    <option>Enrolment & Registration</option>
-                    <option>Exam Prep Programs</option>
-                    <option>Tutoring Schedule</option>
-                    <option>Become a Tutor</option>
-                    <option>Partnership & Collaboration</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="mb-1.5 block text-sm font-semibold text-on-surface">
-                    Message <span className="text-error">*</span>
-                  </label>
-                  <textarea
-                    rows={5}
-                    placeholder="Tell us how we can help you..."
-                    className="w-full resize-none rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full rounded-full bg-primary py-3 text-sm font-semibold text-on-primary transition-all hover:opacity-90 active:scale-[0.98]"
-                >
-                  Send Message
-                </button>
-              </form>
+                  <button
+                    type="submit"
+                    disabled={submitting}
+                    className="w-full rounded-full bg-primary py-3 text-sm font-semibold text-on-primary transition-all hover:opacity-90 active:scale-[0.98] disabled:opacity-50"
+                  >
+                    {submitting ? 'Sending...' : 'Send Message'}
+                  </button>
+                </form>
+              )}
             </div>
 
             {/* Contact Info */}

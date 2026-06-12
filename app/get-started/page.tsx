@@ -38,6 +38,59 @@ const examTypes = [
 
 export default function GetStartedPage() {
   const [step, setStep] = useState(1)
+  const [submitting, setSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+  const [formData, setFormData] = useState({
+    parent_name: '',
+    parent_phone: '',
+    parent_email: '',
+    address: '',
+    learner_name: '',
+    learner_age: '',
+    school: '',
+    special_needs: '',
+    subjects: [] as string[],
+    grade: '',
+    exam_types: [] as string[],
+  })
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  const toggleSubject = (subject: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      subjects: prev.subjects.includes(subject)
+        ? prev.subjects.filter((s) => s !== subject)
+        : [...prev.subjects, subject],
+    }))
+  }
+
+  const toggleExamType = (exam: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      exam_types: prev.exam_types.includes(exam)
+        ? prev.exam_types.filter((e) => e !== exam)
+        : [...prev.exam_types, exam],
+    }))
+  }
+
+  const handleSubmit = async () => {
+    setSubmitting(true)
+    try {
+      await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ formType: 'student_registration', ...formData }),
+      })
+      setSubmitted(true)
+    } catch {
+      alert('Failed to submit. Please try again.')
+    } finally {
+      setSubmitting(false)
+    }
+  }
 
   return (
     <>
@@ -75,6 +128,22 @@ export default function GetStartedPage() {
             ))}
           </div>
 
+          {submitted ? (
+            <div className="rounded-2xl bg-surface-container-lowest p-10 text-center shadow-ambient-md">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-secondary-fixed/30">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <h2 className="text-2xl font-bold text-on-surface font-heading">
+                Registration Submitted!
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-on-surface-variant">
+                Thank you for registering. Our team will review your details and
+                contact you within 1-2 business days to finalise enrolment.
+              </p>
+            </div>
+          ) : (
           <div className="rounded-2xl bg-surface-container-lowest p-8 shadow-ambient-md md:p-10">
             {/* Step 1: Parent Details */}
             {step === 1 && (
@@ -96,7 +165,11 @@ export default function GetStartedPage() {
                       </label>
                       <input
                         type="text"
+                        name="parent_name"
+                        value={formData.parent_name}
+                        onChange={handleChange}
                         placeholder="Your full name"
+                        required
                         className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10"
                       />
                     </div>
@@ -106,7 +179,11 @@ export default function GetStartedPage() {
                       </label>
                       <input
                         type="tel"
+                        name="parent_phone"
+                        value={formData.parent_phone}
+                        onChange={handleChange}
                         placeholder="080 XXXX XXXX"
+                        required
                         className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10"
                       />
                     </div>
@@ -117,7 +194,11 @@ export default function GetStartedPage() {
                     </label>
                     <input
                       type="email"
+                      name="parent_email"
+                      value={formData.parent_email}
+                      onChange={handleChange}
                       placeholder="parent@example.com"
+                      required
                       className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10"
                     />
                   </div>
@@ -127,6 +208,9 @@ export default function GetStartedPage() {
                     </label>
                     <input
                       type="text"
+                      name="address"
+                      value={formData.address}
+                      onChange={handleChange}
                       placeholder="Area / District, Abuja"
                       className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10"
                     />
@@ -164,7 +248,11 @@ export default function GetStartedPage() {
                       </label>
                       <input
                         type="text"
+                        name="learner_name"
+                        value={formData.learner_name}
+                        onChange={handleChange}
                         placeholder="Child's full name"
+                        required
                         className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10"
                       />
                     </div>
@@ -175,9 +263,13 @@ export default function GetStartedPage() {
                       </label>
                       <input
                         type="number"
+                        name="learner_age"
+                        value={formData.learner_age}
+                        onChange={handleChange}
                         min={2}
                         max={18}
                         placeholder="Age"
+                        required
                         className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10"
                       />
                     </div>
@@ -188,6 +280,9 @@ export default function GetStartedPage() {
                     </label>
                     <input
                       type="text"
+                      name="school"
+                      value={formData.school}
+                      onChange={handleChange}
                       placeholder="School name (if any)"
                       className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10"
                     />
@@ -198,6 +293,9 @@ export default function GetStartedPage() {
                     </label>
                     <textarea
                       rows={3}
+                      name="special_needs"
+                      value={formData.special_needs}
+                      onChange={handleChange}
                       placeholder="e.g. needs extra help with reading, preparing for entrance exam, building confidence in maths..."
                       className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10 resize-none"
                     />
@@ -246,6 +344,8 @@ export default function GetStartedPage() {
                           <input
                             type="checkbox"
                             className="sr-only"
+                            checked={formData.subjects.includes(s)}
+                            onChange={() => toggleSubject(s)}
                           />
                           {s}
                         </label>
@@ -268,6 +368,8 @@ export default function GetStartedPage() {
                             type="radio"
                             name="grade"
                             className="sr-only"
+                            checked={formData.grade === g}
+                            onChange={() => setFormData((prev) => ({ ...prev, grade: g }))}
                           />
                           <div className="flex h-4 w-4 items-center justify-center rounded-full border-2 border-outline transition-colors has-[:checked]:border-secondary has-[:checked]:bg-secondary">
                             <div className="h-2 w-2 rounded-full" />
@@ -291,6 +393,8 @@ export default function GetStartedPage() {
                           <input
                             type="checkbox"
                             className="sr-only"
+                            checked={formData.exam_types.includes(e)}
+                            onChange={() => toggleExamType(e)}
                           />
                           {e}
                         </label>
@@ -305,13 +409,18 @@ export default function GetStartedPage() {
                   >
                     &larr; Back
                   </button>
-                  <button className="rounded-full bg-secondary px-8 py-3 text-sm font-semibold text-on-secondary transition-all hover:opacity-90 active:scale-[0.98]">
-                    Submit Registration
+                  <button
+                    onClick={handleSubmit}
+                    disabled={submitting}
+                    className="rounded-full bg-secondary px-8 py-3 text-sm font-semibold text-on-secondary transition-all hover:opacity-90 active:scale-[0.98] disabled:opacity-50"
+                  >
+                    {submitting ? 'Submitting...' : 'Submit Registration'}
                   </button>
                 </div>
               </div>
             )}
           </div>
+          )}
 
           <p className="mt-6 text-center text-xs text-on-surface-variant">
             Already registered?{' '}

@@ -1,9 +1,36 @@
+'use client'
+
+import { useState } from 'react'
 import Navbar from '@/components/Navbar'
 import MobileNav from '@/components/MobileNav'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 
 export default function LoginPage() {
+  const [formData, setFormData] = useState({ email: '', password: '' })
+  const [submitting, setSubmitting] = useState(false)
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setSubmitting(true)
+    try {
+      await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ formType: 'login_attempt', ...formData }),
+      })
+      alert('Sign in functionality is coming soon. We will notify you when ready.')
+    } catch {
+      alert('Something went wrong. Please try again.')
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
   return (
     <>
       <Navbar />
@@ -20,7 +47,7 @@ export default function LoginPage() {
               </p>
             </div>
 
-            <form className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label
                   htmlFor="email"
@@ -30,8 +57,12 @@ export default function LoginPage() {
                 </label>
                 <input
                   id="email"
+                  name="email"
                   type="text"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="parent@example.com"
+                  required
                   className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10"
                 />
               </div>
@@ -45,8 +76,12 @@ export default function LoginPage() {
                 </label>
                 <input
                   id="password"
+                  name="password"
                   type="password"
+                  value={formData.password}
+                  onChange={handleChange}
                   placeholder="Enter your password"
+                  required
                   className="w-full rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/10"
                 />
               </div>
@@ -69,9 +104,10 @@ export default function LoginPage() {
 
               <button
                 type="submit"
-                className="w-full rounded-full bg-primary py-3 text-sm font-semibold text-on-primary transition-all hover:opacity-90 active:scale-[0.98]"
+                disabled={submitting}
+                className="w-full rounded-full bg-primary py-3 text-sm font-semibold text-on-primary transition-all hover:opacity-90 active:scale-[0.98] disabled:opacity-50"
               >
-                Sign In
+                {submitting ? 'Signing in...' : 'Sign In'}
               </button>
             </form>
 

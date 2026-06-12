@@ -39,15 +39,17 @@ export default function Navbar({ active }: { active?: string }) {
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:px-12">
         <Link href="/" className="flex items-center gap-2" onClick={() => setMenuOpen(false)}>
-          <Image
-            src="/learn_edmore_logo.png"
-            alt="Learn Edmore"
-            width={120}
-            height={34}
-            className="h-8 w-auto shrink-0"
-            priority
-          />
-          <span className="text-lg font-bold text-on-surface font-heading">
+          <div className="h-10 w-10 overflow-hidden shrink-0">
+            <Image
+              src="/learn_edmore_logo.png"
+              alt="Learn Edmore"
+              width={200}
+              height={200}
+              className="h-full w-full scale-[3.2] object-cover brightness-150 contrast-150 drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)]"
+              priority
+            />
+          </div>
+          <span className="text-2xl font-black text-on-surface font-heading tracking-tight drop-shadow-sm">
             Learn Edmore
           </span>
         </Link>
