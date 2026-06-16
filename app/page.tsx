@@ -174,7 +174,7 @@ export default function HomePage() {
                     Start Learning Today
                   </a>
                   <a
-                    href="/tutors"
+                    href="/subjects"
                     className="inline-flex items-center gap-2 rounded-full border border-outline-variant px-7 py-3 text-sm font-semibold text-on-surface-variant transition-colors hover:border-primary hover:text-primary active:scale-[0.98]"
                   >
                     Explore Subjects
@@ -215,10 +215,10 @@ export default function HomePage() {
                     Online Classes Available
                   </span>
                   <a
-                    href="/subjects"
+                    href="/get-started"
                     className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
                   >
-                    Explore &rarr;
+                    Get Started &rarr;
                   </a>
                 </div>
               ))}
@@ -345,7 +345,7 @@ export default function HomePage() {
                   Learn Edmore difference. Start your free trial today.
                 </p>
                 <a
-                  href="/subjects"
+                  href="/get-started"
                   className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-primary transition-all hover:opacity-90 active:scale-[0.98]"
                 >
                   Create Your Free Account

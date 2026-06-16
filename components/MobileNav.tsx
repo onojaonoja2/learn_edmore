@@ -57,7 +57,7 @@ export default function MobileNav({ active }: { active?: string }) {
             <Link
               key={tab.href}
               href={tab.href}
-              className={`flex flex-col items-center gap-0.5 px-3 py-1.5 text-[10px] font-semibold transition-colors ${
+              className={`flex flex-col items-center gap-0.5 px-3 py-1.5 text-[10px] font-semibold transition-colors touch-manipulation ${
                 isActive
                   ? 'rounded-full bg-primary-container/20 text-primary'
                   : 'text-on-surface-variant'

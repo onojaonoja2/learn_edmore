@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Navbar from '@/components/Navbar'
 import MobileNav from '@/components/MobileNav'
 import Footer from '@/components/Footer'
@@ -53,6 +53,18 @@ export default function GetStartedPage() {
     grade: '',
     exam_types: [] as string[],
   })
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const subject = params.get('subject')
+    if (subject && subjects.includes(subject)) {
+      setFormData((prev) => ({
+        ...prev,
+        subjects: [subject],
+      }))
+      setStep(3)
+    }
+  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))

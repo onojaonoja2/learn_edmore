@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import MobileNav from '@/components/MobileNav'
 import Footer from '@/components/Footer'
@@ -213,8 +214,8 @@ export default function SubjectsPage() {
                     <p className="mb-4 text-sm leading-relaxed text-on-surface-variant">
                       {s.description}
                     </p>
-                    <a
-                      href="/tutors"
+                    <Link
+                      href={`/get-started?subject=${encodeURIComponent(s.title)}`}
                       className={`inline-flex items-center gap-2 rounded-full border px-5 py-2 text-xs font-semibold transition-colors ${
                         s.accent === 'border-primary'
                           ? 'border-primary text-primary hover:bg-primary hover:text-on-primary'
@@ -223,8 +224,8 @@ export default function SubjectsPage() {
                             : 'border-tertiary text-tertiary hover:bg-tertiary hover:text-on-tertiary'
                       }`}
                     >
-                      Explore Resources &rarr;
-                    </a>
+                      Get Started &rarr;
+                    </Link>
                   </div>
                 </div>
               ))}
