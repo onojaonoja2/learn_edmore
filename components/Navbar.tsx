@@ -84,12 +84,6 @@ export default function Navbar({ active }: { active?: string }) {
 
           <div className="hidden items-center gap-3 md:flex">
             <Link
-              href="/login"
-              className="rounded-full border border-outline-variant px-5 py-2 text-sm font-semibold text-on-surface-variant transition-colors hover:border-primary hover:text-primary"
-            >
-              Login
-            </Link>
-            <Link
               href="/get-started"
               className="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-on-primary transition-opacity hover:opacity-90"
             >
@@ -143,13 +137,6 @@ export default function Navbar({ active }: { active?: string }) {
             ))}
           </nav>
           <div className="flex gap-3 border-t border-outline-variant bg-surface px-5 py-4">
-            <Link
-              href="/login"
-              onClick={() => setMenuOpen(false)}
-              className="w-full rounded-full border border-outline-variant px-5 py-3 text-center text-sm font-semibold text-on-surface-variant transition-colors hover:border-primary hover:text-primary"
-            >
-              Login
-            </Link>
             <Link
               href="/get-started"
               onClick={() => setMenuOpen(false)}

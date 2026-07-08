@@ -46,7 +46,7 @@ const sections = [
   {
     title: 'Contact Us',
     content:
-      'If you have any questions about this Privacy Policy or how we handle your data, please contact us at hello@learnedmore.com or visit our Contact page.',
+      'If you have any questions about this Privacy Policy or how we handle your data, please contact us at learnedmoreconsult@gmail.com or visit our Contact page.',
   },
 ]
 

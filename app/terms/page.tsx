@@ -56,7 +56,7 @@ const sections = [
   {
     title: 'Contact Information',
     content:
-      'For questions about these Terms of Service, please contact us at hello@learnedmore.com, call +234 806 424 7525, or visit our Contact page.',
+      'For questions about these Terms of Service, please contact us at learnedmoreconsult@gmail.com, call +234 806 424 7525, or visit our Contact page.',
   },
 ]
 

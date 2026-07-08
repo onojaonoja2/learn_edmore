@@ -254,7 +254,7 @@ export default function ContactPage() {
                         Email Us
                       </h4>
                       <p className="mt-0.5 text-sm text-on-surface-variant">
-                        hello@learnedmore.com
+                        learnedmoreconsult@gmail.com
                       </p>
                     </div>
                   </div>
