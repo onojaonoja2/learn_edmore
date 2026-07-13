@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Image from 'next/image'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
@@ -5,6 +6,19 @@ import MobileNav from '@/components/MobileNav'
 import Footer from '@/components/Footer'
 import SectionHeading from '@/components/SectionHeading'
 import Badge from '@/components/Badge'
+import JsonLd from '@/components/JsonLd'
+
+export const metadata: Metadata = {
+  title: "Subjects We Teach",
+  description:
+    "Explore Learn Edmore's comprehensive subject offerings: Mathematics, English, Science, Igbo, Yoruba, Hausa, French, Creative Arts, Social Studies, and Adult Literacy. Online and on-site in Abuja.",
+  openGraph: {
+    title: "Subjects We Teach — Learn Edmore",
+    description:
+      "Nigerian and Cambridge curriculum subjects taught by expert tutors. Available online and on-site in Abuja.",
+    url: "https://learnedmore.com/subjects",
+  },
+}
 
 const subjects = [
   {
@@ -160,9 +174,29 @@ const subjects = [
   },
 ]
 
+const subjectsSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Subjects We Teach",
+  description: "Comprehensive curriculum subjects offered by Learn Edmore Tutoring Academy.",
+  itemListElement: [
+    "Mathematics", "English Language", "Science", "Social Studies",
+    "Creative Arts", "Yoruba", "Igbo", "Hausa", "French", "Adult Literacy",
+  ].map((name, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: {
+      "@type": "Course",
+      name,
+      provider: { "@type": "Organization", name: "Learn Edmore" },
+    },
+  })),
+}
+
 export default function SubjectsPage() {
   return (
     <>
+      <JsonLd data={subjectsSchema} />
       <Navbar active="Subjects" />
 
       <main className="flex-1">

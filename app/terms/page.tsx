@@ -1,6 +1,14 @@
+import type { Metadata } from "next"
 import Navbar from '@/components/Navbar'
 import MobileNav from '@/components/MobileNav'
 import Footer from '@/components/Footer'
+
+export const metadata: Metadata = {
+  title: "Terms of Service",
+  description:
+    "Learn Edmore Tutoring Academy's terms of service — the terms and conditions governing the use of our tutoring services and website.",
+  robots: { index: false, follow: true },
+}
 
 const sections = [
   {

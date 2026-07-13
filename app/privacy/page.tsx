@@ -1,6 +1,14 @@
+import type { Metadata } from "next"
 import Navbar from '@/components/Navbar'
 import MobileNav from '@/components/MobileNav'
 import Footer from '@/components/Footer'
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "Learn Edmore Tutoring Academy's privacy policy — how we collect, use, and protect your personal information.",
+  robots: { index: false, follow: true },
+}
 
 const sections = [
   {

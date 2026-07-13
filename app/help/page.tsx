@@ -1,7 +1,21 @@
+import type { Metadata } from "next"
 import Navbar from '@/components/Navbar'
 import MobileNav from '@/components/MobileNav'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
+import JsonLd from '@/components/JsonLd'
+
+export const metadata: Metadata = {
+  title: "Help Center",
+  description:
+    "Find answers to frequently asked questions about Learn Edmore's tutoring services, enrolment, schedules, curricula, and more.",
+  openGraph: {
+    title: "Help Center — Learn Edmore",
+    description:
+      "FAQs about Learn Edmore Tutoring Academy's online and on-site tutoring services in Abuja.",
+    url: "https://learnedmore.com/help",
+  },
+}
 
 const faqs = [
   {
@@ -38,9 +52,23 @@ const faqs = [
   },
 ]
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.a,
+    },
+  })),
+}
+
 export default function HelpPage() {
   return (
     <>
+      <JsonLd data={faqSchema} />
       <Navbar />
 
       <main className="flex-1">

@@ -1,8 +1,21 @@
+import type { Metadata } from "next"
 import Navbar from '@/components/Navbar'
 import MobileNav from '@/components/MobileNav'
 import Footer from '@/components/Footer'
 import SectionHeading from '@/components/SectionHeading'
 import Badge from '@/components/Badge'
+
+export const metadata: Metadata = {
+  title: "Meet Our Tutors",
+  description:
+    "Get to know Learn Edmore's expert tutors in Abuja — qualified educators specialising in Mathematics, English, Science, Languages, and exam preparation.",
+  openGraph: {
+    title: "Meet Our Tutors — Learn Edmore",
+    description:
+      "Expert tutors at Learn Edmore Tutoring Academy in Abuja. Qualified, experienced, and passionate about helping students succeed.",
+    url: "https://learnedmore.com/tutors",
+  },
+}
 
 const tutors = [
   {

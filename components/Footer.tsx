@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <Link href="/" className="mb-4 flex items-center gap-2">
               <Image
-                src="/learn_edmore_logo.png"
+                src="/Learn_edmore_logo.jpeg"
                 alt="Learn Edmore"
                 width={120}
                 height={34}

@@ -10,8 +10,13 @@ export const metadata: Metadata = {
   },
   description:
     "An Abuja-based online and on-site tutoring academy with a global online reach. Expert-led lessons in Mathematics, English Language, Igbo Language, Science, Adult Literacy, and more.",
+  metadataBase: new URL("https://learnedmore.com"),
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: "/brand-mark.svg",
+    apple: "/brand-mark.svg",
   },
   openGraph: {
     title: "Learn Edmore Tutoring Academy",
@@ -21,6 +26,32 @@ export const metadata: Metadata = {
     siteName: "Learn Edmore",
     locale: "en_NG",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Learn Edmore — Tutoring Academy Abuja",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Learn Edmore Tutoring Academy",
+    description:
+      "An Abuja-based online and on-site tutoring academy with a global online reach. Expert-led lessons in Mathematics, English Language, Igbo Language, Science, Adult Literacy, and more.",
+    images: ["/opengraph-image"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 }
 

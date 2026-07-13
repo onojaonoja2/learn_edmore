@@ -1,7 +1,43 @@
+import type { Metadata } from "next"
 import Image from 'next/image'
 import Navbar from '@/components/Navbar'
 import MobileNav from '@/components/MobileNav'
 import Footer from '@/components/Footer'
+import JsonLd from '@/components/JsonLd'
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "Learn about Learn Edmore Tutoring Academy in Abuja — our mission, story, values, and commitment to personalised online and on-site education for every learner.",
+  openGraph: {
+    title: "About Learn Edmore — Tutoring Academy Abuja",
+    description:
+      "Discover how Learn Edmore is shaping the future of education in Abuja with expert-led tutoring in Mathematics, English, Science, Languages, and more.",
+    url: "https://learnedmore.com/about",
+  },
+}
+
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Learn Edmore",
+  description:
+    "An Abuja-based online and on-site tutoring academy with a global online reach.",
+  founder: { "@type": "Person", name: "Edmore O." },
+  foundingDate: "2014",
+  areaServed: ["Abuja", "Nigeria", "Worldwide"],
+  knowsAbout: [
+    "Tutoring",
+    "Mathematics",
+    "English Language",
+    "Igbo Language",
+    "Science",
+    "Adult Literacy",
+    "Cambridge Curriculum",
+    "WAEC",
+    "Common Entrance",
+  ],
+}
 
 const stats = [
   { label: 'Students Taught', value: '500+' },
@@ -57,6 +93,7 @@ const values = [
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={aboutSchema} />
       <Navbar />
 
       <main className="flex-1">

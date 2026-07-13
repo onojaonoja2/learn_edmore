@@ -53,7 +53,7 @@ export default function Navbar({ active }: { active?: string }) {
           <Link href="/" className="flex items-center gap-2" onClick={() => setMenuOpen(false)}>
             <div className="h-10 w-10 overflow-hidden shrink-0">
               <Image
-                src="/learn_edmore_logo.png"
+                src="/Learn_edmore_logo.jpeg"
                 alt="Learn Edmore"
                 width={200}
                 height={200}

@@ -1,9 +1,47 @@
+import type { Metadata } from "next"
 import Navbar from '@/components/Navbar'
 import MobileNav from '@/components/MobileNav'
 import Footer from '@/components/Footer'
 import Badge from '@/components/Badge'
 import Link from 'next/link'
 import Image from 'next/image'
+import JsonLd from '@/components/JsonLd'
+
+export const metadata: Metadata = {
+  title: "Exam Preparation",
+  description:
+    "Prepare for Common Entrance, Junior WAEC, Senior WAEC, Checkpoint, and Cambridge exams with Learn Edmore's expert-led exam prep programs in Abuja. Online and on-site.",
+  openGraph: {
+    title: "Exam Preparation — Learn Edmore",
+    description:
+      "Targeted exam prep programs for Common Entrance, WAEC, Checkpoint, and Cambridge exams. Proven success rate with expert tutors in Abuja.",
+    url: "https://learnedmore.com/exam-prep",
+  },
+}
+
+const examPrograms = [
+  "Common Entrance Exam",
+  "Junior WAEC (BECE)",
+  "Senior WAEC (SSCE)",
+  "Checkpoint",
+  "Cambridge IGCSE",
+]
+
+const examSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Exam Prep Programs",
+  description: "Exam preparation programs offered by Learn Edmore Tutoring Academy.",
+  itemListElement: examPrograms.map((name, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: {
+      "@type": "Course",
+      name,
+      provider: { "@type": "Organization", name: "Learn Edmore" },
+    },
+  })),
+}
 
 const exams = [
   {
@@ -114,6 +152,7 @@ const steps = [
 export default function ExamPrepPage() {
   return (
     <>
+      <JsonLd data={examSchema} />
       <Navbar active="Exam Prep" />
 
       <main className="flex-1">

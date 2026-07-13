@@ -4,6 +4,40 @@ import Footer from '@/components/Footer'
 import SectionHeading from '@/components/SectionHeading'
 import Badge from '@/components/Badge'
 import HeroSlider from '@/components/HeroSlider'
+import JsonLd from '@/components/JsonLd'
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": ["Organization", "LocalBusiness"],
+  name: "Learn Edmore",
+  url: "https://learnedmore.com",
+  logo: "https://learnedmore.com/brand-mark.svg",
+  description:
+    "An Abuja-based online and on-site tutoring academy with a global online reach. Expert-led lessons in Mathematics, English Language, Igbo Language, Science, Adult Literacy, and more.",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Abuja",
+    addressCountry: "NG",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+2347045292021",
+    contactType: "customer service",
+    availableLanguage: ["English"],
+  },
+  areaServed: ["Abuja", "Nigeria", "Worldwide"],
+  knowsAbout: [
+    "Tutoring",
+    "Mathematics",
+    "English Language",
+    "Igbo Language",
+    "Science",
+    "Adult Literacy",
+    "Cambridge Curriculum",
+    "WAEC",
+    "Common Entrance",
+  ],
+}
 
 const subjects = [
   {
@@ -145,6 +179,7 @@ const testimonials = [
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={organizationSchema} />
       <Navbar active="Home" />
 
       <main className="flex-1">
