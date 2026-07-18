@@ -177,12 +177,56 @@ export default function ContactForm() {
                   Quickest way to reach us. Tap to start a conversation.
                 </p>
                 <a
-                  href="https://wa.me/2347045292021"
+                  href="https://wa.me/2347045292029"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-5 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#25D366] transition-all hover:opacity-90 active:scale-[0.98]"
                 >
-                  <span>0704 529 2021 (WhatsApp only)</span>
+                  <span>0704 529 2029 (WhatsApp only)</span>
+                </a>
+              </div>
+
+              <div className="rounded-2xl bg-[#1877F2] p-8 text-white shadow-ambient-md">
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/20">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold font-heading">
+                  Follow Us on Facebook
+                </h3>
+                <p className="mt-2 text-sm text-white/80">
+                  Stay updated with news, events, and learning tips.
+                </p>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61591689107228"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#1877F2] transition-all hover:opacity-90 active:scale-[0.98]"
+                >
+                  <span>Like & Follow</span>
+                </a>
+              </div>
+
+              <div className="rounded-2xl bg-[#0A66C2] p-8 text-white shadow-ambient-md">
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/20">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold font-heading">
+                  Connect on LinkedIn
+                </h3>
+                <p className="mt-2 text-sm text-white/80">
+                  Follow our company page for updates and career opportunities.
+                </p>
+                <a
+                  href="https://www.linkedin.com/company/learn-edmore/about/?viewAsMember=true"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#0A66C2] transition-all hover:opacity-90 active:scale-[0.98]"
+                >
+                  <span>Follow Page</span>
                 </a>
               </div>
 

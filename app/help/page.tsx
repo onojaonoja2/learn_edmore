@@ -133,7 +133,7 @@ export default function HelpPage() {
                   Contact Us
                 </Link>
                 <a
-                  href="https://wa.me/2347045292021"
+                  href="https://wa.me/2347045292029"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full border border-outline-variant px-7 py-3 text-sm font-semibold text-on-surface-variant transition-colors hover:border-primary hover:text-primary active:scale-[0.98]"

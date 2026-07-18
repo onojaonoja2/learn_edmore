@@ -21,7 +21,7 @@ const organizationSchema = {
   },
   contactPoint: {
     "@type": "ContactPoint",
-    telephone: "+2347045292021",
+    telephone: "+2347045292029",
     contactType: "customer service",
     availableLanguage: ["English"],
   },
